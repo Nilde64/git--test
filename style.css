@@ -127,34 +127,68 @@ header {
 /* =========================
    ADAPTATION MOBILE
 ========================= */
-@media (max-width: 768px) {
+/* ==========================================
+   CORRECTION CRITIQUE MOBILE (Navigation)
+========================================== */
+@media screen and (max-width: 768px) {
 
+    /* Force le header à prendre toute la largeur */
+    header {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100vw !important;
+        background: rgba(7, 11, 24, 0.95) !important;
+        z-index: 9999 !important;
+    }
+
+    /* Aligne le logo en haut au centre */
     .navbar {
+        display: flex !important;
         flex-direction: column !important;
-        /* Le logo passe en haut, les liens en dessous */
-        padding: 10px 5px !important;
-        gap: 8px !important;
+        /* Met le logo AU-DESSUS du menu */
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 8px 5px !important;
+        width: 100% !important;
     }
 
     .logo {
         font-size: 1.3rem !important;
+        margin-bottom: 4px !important;
     }
 
+    /* Force la liste de liens à se placer EN DESSOUS du logo */
     .navbar ul {
-        gap: 8px !important;
-        /* Réduit l'espace entre chaque mot */
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        /* Permet aux liens de sauter une ligne si besoin */
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 6px 10px !important;
+        /* Espace propre entre chaque lien */
         padding: 0 !important;
         margin: 0 !important;
         width: 100% !important;
-        justify-content: center !important;
-        flex-wrap: wrap !important;
-        /* Permet aux liens de se placer proprement */
+        list-style: none !important;
+    }
+
+    .navbar ul li {
+        display: inline-block !important;
     }
 
     .navbar ul li a {
-        font-size: 0.75rem !important;
-        /* Écriture plus petite pour tout faire rentrer */
+        font-size: 0.7rem !important;
+        /* Réduit la taille du texte */
         padding: 2px 4px !important;
+        white-space: nowrap !important;
+    }
+
+    /* Décale un peu le haut de la page pour ne pas cacher ta photo */
+    section:first-of-type,
+    .home {
+        padding-top: 110px !important;
     }
 }
 
