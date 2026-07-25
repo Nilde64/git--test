@@ -19,12 +19,18 @@
     --shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
 }
 
+/* Correctif Anti-Débordement Horizontal */
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     background: var(--dark);
     color: var(--white);
-    overflow-x: hidden;
-    width: 100%;
 }
 
 a {
@@ -33,13 +39,16 @@ a {
 }
 
 img {
+    max-width: 100%;
     width: 100%;
+    height: auto;
     display: block;
 }
 
 section {
     padding: 100px 8%;
     animation: fadeIn 1s ease-out;
+    width: 100%;
 }
 
 .title {
@@ -156,15 +165,6 @@ header {
     animation:
         typing 3s steps(38) forwards,
         blink 0.75s step-end infinite;
-}
-
-@media (max-width:768px) {
-    .home-text h2 {
-        white-space: normal;
-        width: auto;
-        border-right: none;
-        animation: none;
-    }
 }
 
 .home-text p {
@@ -329,7 +329,7 @@ header {
 }
 
 /* =========================
-   PROJECTS (STYLE ÉPURÉ)
+   PROJECTS
 ========================= */
 
 .projects {
@@ -364,7 +364,6 @@ header {
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 212, 255, 0.15);
 }
 
-/* Container de l'image */
 .card-img-wrapper {
     position: relative;
     overflow: hidden;
@@ -378,12 +377,10 @@ header {
     transition: transform 0.5s ease;
 }
 
-/* Zoom fluide sur l'image au survol */
 .card:hover .card-img-wrapper img {
     transform: scale(1.08);
 }
 
-/* Badge Coin Supérieur Droit */
 .badge {
     position: absolute;
     top: 12px;
@@ -400,7 +397,6 @@ header {
     z-index: 2;
 }
 
-/* Zone Contenu */
 .card-content {
     padding: 22px;
     display: flex;
@@ -423,7 +419,6 @@ header {
     flex-grow: 1;
 }
 
-/* Tags Style Code */
 .tags {
     display: flex;
     flex-wrap: wrap;
@@ -440,20 +435,8 @@ header {
     border: 1px solid rgba(0, 212, 255, 0.2);
 }
 
-/* RESPONSIVE */
-@media (max-width: 1024px) {
-    .projects-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .projects-container {
-        grid-template-columns: 1fr;
-    }
-}
 /* =========================
-   EDUCATION / TIMELINE DECORÉE
+   EDUCATION / TIMELINE
 ========================= */
 
 .education {
@@ -466,10 +449,8 @@ header {
     margin: 0 auto;
     position: relative;
     padding-left: 30px;
-    /* Espace pour la ligne verticale */
 }
 
-/* La ligne verticale du temps */
 .timeline::before {
     content: '';
     position: absolute;
@@ -486,7 +467,6 @@ header {
     margin-bottom: 40px;
 }
 
-/* Le point lumineux (icône sur la ligne) */
 .timeline-dot {
     position: absolute;
     left: -43px;
@@ -504,7 +484,6 @@ header {
     z-index: 2;
 }
 
-/* La carte de texte (effet Glassmorphism) */
 .timeline-content {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
@@ -552,29 +531,8 @@ header {
     line-height: 1.6;
 }
 
-/* Adaptations mobiles */
-@media (max-width: 600px) {
-    .timeline {
-        padding-left: 20px;
-    }
-
-    .timeline::before {
-        left: 8px;
-    }
-
-    .timeline-dot {
-        left: -28px;
-        width: 30px;
-        height: 30px;
-        font-size: 0.8rem;
-    }
-
-    .timeline-content {
-        padding: 18px;
-    }
-}
 /* =========================
-       CONTACT (STYLE MAQUETTE)
+   CONTACT
 ========================= */
 
 .contact {
@@ -582,7 +540,6 @@ header {
     min-height: 100vh;
 }
 
-/* Grille principale en 2 colonnes */
 .contact-container {
     max-width: 1100px;
     margin: 0 auto;
@@ -592,7 +549,6 @@ header {
     align-items: start;
 }
 
-/* Cartes avec effet verre / fond sombres */
 .contact-box {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
@@ -601,7 +557,6 @@ header {
     padding: 35px;
 }
 
-/* BLOC GAUCHE : FORMULAIRE */
 .form-box h3 {
     font-size: 1.8rem;
     margin-bottom: 5px;
@@ -619,7 +574,6 @@ header {
     gap: 20px;
 }
 
-/* Disposition des champs Nom & Email côte à côte */
 .input-group {
     display: flex;
     gap: 15px;
@@ -669,7 +623,6 @@ header {
     border: none;
 }
 
-/* BLOC DROIT : INFOS & RÉSEAUX */
 .contact-info-wrapper {
     display: flex;
     flex-direction: column;
@@ -699,6 +652,7 @@ header {
     align-items: center;
     justify-content: center;
     font-size: 1.2rem;
+    flex-shrink: 0;
 }
 
 .info-item span {
@@ -718,8 +672,9 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
     padding: 20px;
+    flex-wrap: wrap;
 }
 
 .social-btn {
@@ -732,12 +687,10 @@ header {
     align-items: center;
     justify-content: center;
     color: #ffffff;
-    /* S'assure que l'icône est blanche */
     font-size: 1.3rem;
     transition: all 0.3s ease;
 }
 
-/* Effet au survol (Glow / Lueur) */
 .social-btn:hover {
     background: var(--secondary);
     color: var(--dark);
@@ -746,18 +699,8 @@ header {
     box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
 }
 
-/* RESPONSIVE (Passage sur une colonne sur écran mobile) */
-@media (max-width: 900px) {
-    .contact-container {
-        grid-template-columns: 1fr;
-    }
-
-    .input-group {
-        flex-direction: column;
-    }
-}
 /* =========================
-   FOOTER (2 COLONNES COMPACT)
+   FOOTER
 ========================= */
 
 footer {
@@ -776,7 +719,6 @@ footer {
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Côté Gauche : Infos */
 .footer-info h3 {
     font-size: 1.1rem;
     color: var(--white);
@@ -795,13 +737,11 @@ footer {
     font-weight: 500;
 }
 
-/* Côté Droit : Réseaux Sociaux */
 .footer-socials {
     display: flex;
     gap: 15px;
 }
 
-/* Style des badges statiques */
 .footer-socials .social-info {
     font-size: 0.82rem;
     color: var(--gray);
@@ -811,7 +751,6 @@ footer {
     border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Ligne de Copyright */
 .footer-bottom {
     text-align: center;
     padding-top: 10px;
@@ -820,19 +759,6 @@ footer {
 .footer-bottom p {
     font-size: 0.75rem;
     color: rgba(255, 255, 255, 0.4);
-}
-/* RESPONSIVE (Mobiles) */
-@media (max-width: 768px) {
-    .footer-container {
-        flex-direction: column;
-        text-align: center;
-        gap: 15px;
-    }
-
-    .footer-socials {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
 }
 
 /* =========================
@@ -880,10 +806,10 @@ footer {
 }
 
 /* =========================
-   RESPONSIVE DESIGN
+   RESPONSIVE DESIGN (REVISED)
 ========================= */
 
-/* Tablettes & Ordinateurs portables (<= 1024px) */
+/* Tablettes (<= 1024px) */
 @media (max-width: 1024px) {
     section {
         padding: 80px 5%;
@@ -921,6 +847,11 @@ footer {
 
 /* Mobiles (<= 768px) */
 @media (max-width: 768px) {
+    section {
+        padding: 60px 4%;
+        /* Réduction du padding latéral pour éviter le débordement */
+    }
+
     .navbar {
         padding: 15px 5%;
     }
@@ -967,8 +898,13 @@ footer {
     }
 
     .skills-container,
-    .projects-container {
+    .projects-container,
+    .contact-container {
         grid-template-columns: 1fr;
+    }
+
+    .input-group {
+        flex-direction: column;
     }
 
     .about-image img {
@@ -988,14 +924,48 @@ footer {
         max-width: 280px;
         text-align: center;
     }
-}
 
-/* Petits écrans mobiles (<= 480px) */
-@media (max-width: 480px) {
-    section {
-        padding: 60px 4%;
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
     }
 
+    .footer-socials {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+/* Petits écrans mobiles (<= 600px & 480px) */
+@media (max-width: 600px) {
+
+    /* Sécurisation de la Timeline sur très petit écran */
+    .timeline {
+        padding-left: 20px;
+    }
+
+    .timeline::before {
+        left: 5px;
+    }
+
+    .timeline-dot {
+        left: -15px;
+        width: 28px;
+        height: 28px;
+        font-size: 0.75rem;
+    }
+
+    .timeline-content {
+        padding: 18px;
+    }
+
+    .contact-box {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
     .logo {
         font-size: 1.5rem;
     }
@@ -1007,9 +977,5 @@ footer {
 
     .card img {
         height: 160px;
-    }
-
-    .timeline-item {
-        padding: 20px;
     }
 }
