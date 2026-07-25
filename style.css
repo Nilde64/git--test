@@ -155,27 +155,38 @@ header {
         flex-shrink: 0 !important;
     }
 
-    .navbar ul {
-        display: flex !important;
-        flex-direction: row !important;
-        align-items: center !important;
-        gap: 12px !important;
-        margin: 0 !important;
-        padding: 5px 0 !important;
-        background: transparent !important;
-
-        overflow-x: auto !important;
-        white-space: nowrap !important;
-        -webkit-overflow-scrolling: touch !important;
-    }
+        /* Défilement horizontal des liens (CORRIGÉ) */
+        .navbar ul {
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: center !important;
+            gap: 15px !important;
+            margin: 0 !important;
+            padding: 5px 0 !important;
+            background: transparent !important;
+    
+            /* Propriétés clés pour le défilement */
+            overflow-x: auto !important;
+            /* Préférable à 'scroll' */
+            white-space: nowrap !important;
+            width: 100% !important;
+            /* Définit une limite nette */
+            min-width: 0 !important;
+            /* CRUCIAL : Débloque la réduction Flexbox */
+            -webkit-overflow-scrolling: touch !important;
+        }
+    
+        /* L'ÉLÉMENT MAGIQUE MANQUANT : */
+        .navbar ul li {
+            flex-shrink: 0 !important;
+            /* Interdit à Flexbox d'écraser/réduire les éléments */
+        }
 
     .navbar ul::-webkit-scrollbar {
         display: none !important;
     }
 
-    .navbar ul li {
-        flex-shrink: 0 !important;
-    }
+    
 
     .navbar ul li a {
         font-size: 0.85rem !important;
