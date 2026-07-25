@@ -103,6 +103,7 @@ header {
     font-size: 2rem;
     font-weight: 700;
     white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .logo span {
@@ -124,6 +125,40 @@ header {
 
 .navbar ul li a:hover {
     color: var(--secondary);
+}
+
+/* --- Ajustements spécifiques Mobile --- */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 12px 10px !important;
+        gap: 10px;
+    }
+
+    .logo {
+        font-size: 1.2rem !important;
+    }
+
+    .navbar ul {
+        display: flex !important;
+        /* Empeche de masquer la liste */
+        gap: 8px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow-x: auto;
+        /* Glissement fluide si l'ecran est tres etroit */
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .navbar ul::-webkit-scrollbar {
+        display: none;
+        /* Cache la barre de defilement sous iOS/Android */
+    }
+
+    .navbar ul li a {
+        font-size: 0.7rem !important;
+        padding: 2px 4px !important;
+        white-space: nowrap !important;
+    }
 }
 
 /* =========================
