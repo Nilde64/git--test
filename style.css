@@ -119,17 +119,24 @@ header {
     color: var(--secondary);
 }
 /* ==========================================
-   FORCE TRANSPARENCE & SCROLL HORIZONTAL MOBILE
+   CORRECTION FINALE MOBILE
 ========================================== */
 @media screen and (max-width: 768px) {
 
-    /* Transparence absolue sur le header et la navbar */
-    header,
-    header.navbar,
-    .navbar {
-        background: none !important;
+    html,
+    body {
+        overflow-x: hidden !important;
+    }
+
+    header {
+        background: transparent !important;
         background-color: transparent !important;
         box-shadow: none !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        z-index: 9999 !important;
     }
 
     .navbar {
@@ -139,42 +146,34 @@ header {
         justify-content: space-between !important;
         padding: 10px 12px !important;
         width: 100% !important;
+        background: transparent !important;
         box-sizing: border-box !important;
     }
 
     .logo {
         font-size: 1.2rem !important;
         flex-shrink: 0 !important;
-        /* Empêche le logo de se faire écraser */
-        margin-right: 10px !important;
     }
 
-    /* Défilement horizontal des liens */
     .navbar ul {
         display: flex !important;
         flex-direction: row !important;
         align-items: center !important;
-        gap: 15px !important;
+        gap: 12px !important;
         margin: 0 !important;
         padding: 5px 0 !important;
         background: transparent !important;
 
-        /* Propriétés clés pour le défilement */
-        overflow-x: scroll !important;
+        overflow-x: auto !important;
         white-space: nowrap !important;
-        max-width: 100% !important;
         -webkit-overflow-scrolling: touch !important;
     }
 
-    /* Cache la barre de défilement */
     .navbar ul::-webkit-scrollbar {
         display: none !important;
-        width: 0 !important;
-        height: 0 !important;
     }
 
     .navbar ul li {
-        display: inline-block !important;
         flex-shrink: 0 !important;
     }
 
@@ -183,7 +182,6 @@ header {
         white-space: nowrap !important;
     }
 }
-
 /* =========================
    HOME
 ========================= */
