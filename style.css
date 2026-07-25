@@ -25,6 +25,7 @@ body {
     color: var(--white);
     overflow-x: hidden;
     width: 100%;
+     padding-top: 80px;
 }
 
 a {
@@ -66,6 +67,13 @@ section {
 ========================= */
 
 header {
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    
     background: transparent !important;
     position: fixed;
     top: 0;
@@ -150,13 +158,21 @@ header {
 .home-text h2 {
     font-size: 1.7rem;
     margin-bottom: 20px;
-    white-space: nowrap;
     overflow: hidden;
     border-right: 3px solid var(--secondary);
     width: 0;
     animation:
         typing 3s steps(38) forwards,
         blink 0.75s step-end infinite;
+}
+
+@media (max-width:768px) {
+    .home-text h2 {
+        white-space: normal;
+        width: auto;
+        border-right: none;
+        animation: none;
+    }
 }
 
 .home-text p {
