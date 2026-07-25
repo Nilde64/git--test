@@ -121,27 +121,41 @@ header {
 /* ==========================================
    CORRECTION FINALE MOBILE
 ========================================== */
+/* ==========================================
+   DÉFILEMENT HORIZONTAL MOBILE (FIXÉ)
+========================================== */
 @media screen and (max-width: 768px) {
+
+    header {
+        background: transparent !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100vw !important;
+        max-width: 100vw !important;
+        z-index: 9999 !important;
+    }
 
     .navbar {
         display: flex !important;
         flex-direction: row !important;
         align-items: center !important;
         justify-content: space-between !important;
+        padding: 10px 15px !important;
         width: 100% !important;
-        padding: 10px 12px !important;
         box-sizing: border-box !important;
-        background: transparent !important;
+        /* RÈGLE CLÉ N°1 : Permet aux enfants flex de réduire leur taille */
+        min-width: 0 !important;
     }
 
     .logo {
         font-size: 1.2rem !important;
+        /* RÈGLE CLÉ N°2 : Le logo ne bouge pas et ne se compresse jamais */
         flex-shrink: 0 !important;
-        /* Empêche le logo de bouger */
         margin-right: 15px !important;
     }
 
-    /* Le conteneur des liens */
+    /* Le ruban défilant */
     .navbar ul {
         display: flex !important;
         flex-direction: row !important;
@@ -149,25 +163,26 @@ header {
         gap: 15px !important;
         margin: 0 !important;
         padding: 5px 0 !important;
-        background: transparent !important;
+        list-style: none !important;
 
-        /* C'EST CE BLOC QUI ACTIVE LE SCROLL : */
-        flex: 1 !important;
-        /* Force le ul à prendre l'espace restant */
-        min-width: 0 !important;
-        /* Permet au ul de devenir plus petit que son contenu */
+        /* RÈGLE CLÉ N°3 : Forcer le défilement horizontal */
         overflow-x: auto !important;
-        /* Active le défilement */
         white-space: nowrap !important;
+        width: 100% !important;
+        min-width: 0 !important;
+
         -webkit-overflow-scrolling: touch !important;
+        /* Touch fluide iOS/Android */
     }
 
-    /* Empêche la barre de défilement moche d'apparaître */
+    /* Cache la barre de défilement visuelle sous Chrome/Safari */
     .navbar ul::-webkit-scrollbar {
         display: none !important;
+        width: 0 !important;
+        height: 0 !important;
     }
 
-    /* OBLIGATOIRE : Empêche les liens de se compacter */
+    /* RÈGLE CLÉ N°4 : Chaque item conserve sa taille de texte complète */
     .navbar ul li {
         flex-shrink: 0 !important;
         display: inline-block !important;
