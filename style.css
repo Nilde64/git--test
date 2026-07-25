@@ -25,7 +25,6 @@ body {
     color: var(--white);
     overflow-x: hidden;
     width: 100%;
-     padding-top: 80px;
 }
 
 a {
@@ -67,13 +66,6 @@ section {
 ========================= */
 
 header {
-    
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    
     background: transparent !important;
     position: fixed;
     top: 0;
