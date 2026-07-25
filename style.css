@@ -118,17 +118,18 @@ header {
 .navbar ul li a:hover {
     color: var(--secondary);
 }
-/* =========================
-   HEADER STYLE AMAZON (TRANSPARENT)
-========================= */
-@media (max-width: 768px) {
+/* ==========================================
+   FORCE TRANSPARENCE & SCROLL HORIZONTAL MOBILE
+========================================== */
+@media screen and (max-width: 768px) {
 
-    header {
-        background: transparent !important;
-        /* Rend le header totalement transparent */
-        backdrop-filter: blur(8px) !important;
-        /* Garde le flou de fond si tu le souhaites */
-        -webkit-backdrop-filter: blur(8px) !important;
+    /* Transparence absolue sur le header et la navbar */
+    header,
+    header.navbar,
+    .navbar {
+        background: none !important;
+        background-color: transparent !important;
+        box-shadow: none !important;
     }
 
     .navbar {
@@ -136,20 +137,19 @@ header {
         flex-direction: row !important;
         align-items: center !important;
         justify-content: space-between !important;
-        padding: 10px 15px !important;
-        gap: 15px !important;
+        padding: 10px 12px !important;
         width: 100% !important;
         box-sizing: border-box !important;
-        background: transparent !important;
-        /* Navbar transparente */
     }
 
     .logo {
-        font-size: 1.3rem !important;
+        font-size: 1.2rem !important;
         flex-shrink: 0 !important;
+        /* Empêche le logo de se faire écraser */
+        margin-right: 10px !important;
     }
 
-    /* Le ruban de liens défilant */
+    /* Défilement horizontal des liens */
     .navbar ul {
         display: flex !important;
         flex-direction: row !important;
@@ -159,18 +159,22 @@ header {
         padding: 5px 0 !important;
         background: transparent !important;
 
-        overflow-x: auto !important;
+        /* Propriétés clés pour le défilement */
+        overflow-x: scroll !important;
         white-space: nowrap !important;
-
-        -webkit-overflow-scrolling: touch;
+        max-width: 100% !important;
+        -webkit-overflow-scrolling: touch !important;
     }
 
     /* Cache la barre de défilement */
     .navbar ul::-webkit-scrollbar {
         display: none !important;
+        width: 0 !important;
+        height: 0 !important;
     }
 
     .navbar ul li {
+        display: inline-block !important;
         flex-shrink: 0 !important;
     }
 
