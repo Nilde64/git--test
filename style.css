@@ -118,6 +118,67 @@ header {
 .navbar ul li a:hover {
     color: var(--secondary);
 }
+/* =========================
+   HEADER STYLE AMAZON (TRANSPARENT)
+========================= */
+@media (max-width: 768px) {
+
+    header {
+        background: transparent !important;
+        /* Rend le header totalement transparent */
+        backdrop-filter: blur(8px) !important;
+        /* Garde le flou de fond si tu le souhaites */
+        -webkit-backdrop-filter: blur(8px) !important;
+    }
+
+    .navbar {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding: 10px 15px !important;
+        gap: 15px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        background: transparent !important;
+        /* Navbar transparente */
+    }
+
+    .logo {
+        font-size: 1.3rem !important;
+        flex-shrink: 0 !important;
+    }
+
+    /* Le ruban de liens défilant */
+    .navbar ul {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 15px !important;
+        margin: 0 !important;
+        padding: 5px 0 !important;
+        background: transparent !important;
+
+        overflow-x: auto !important;
+        white-space: nowrap !important;
+
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Cache la barre de défilement */
+    .navbar ul::-webkit-scrollbar {
+        display: none !important;
+    }
+
+    .navbar ul li {
+        flex-shrink: 0 !important;
+    }
+
+    .navbar ul li a {
+        font-size: 0.85rem !important;
+        white-space: nowrap !important;
+    }
+}
 
 /* =========================
    HOME
