@@ -92,6 +92,7 @@ header {
     align-items: center;
     padding: 20px 8%;
     background: transparent !important;
+    width: 100%;
 }
 
 .logo {
@@ -542,6 +543,7 @@ header {
 
 .contact-container {
     max-width: 1100px;
+    width: 100%;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1.3fr 0.9fr;
@@ -555,6 +557,9 @@ header {
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     padding: 35px;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .form-box h3 {
@@ -572,11 +577,13 @@ header {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 100%;
 }
 
 .input-group {
     display: flex;
     gap: 15px;
+    width: 100%;
 }
 
 .input-field {
@@ -602,7 +609,9 @@ header {
     border-radius: 12px;
     outline: none;
     font-family: inherit;
-    width: 100%;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
     transition: 0.3s;
 }
 
@@ -848,8 +857,7 @@ footer {
 /* Mobiles (<= 768px) */
 @media (max-width: 768px) {
     section {
-        padding: 60px 4%;
-        /* Réduction du padding latéral pour éviter le débordement */
+        padding: 60px 15px !important;
     }
 
     .navbar {
@@ -900,7 +908,16 @@ footer {
     .skills-container,
     .projects-container,
     .contact-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
+    }
+
+    .contact-box {
+        padding: 20px 15px;
+    }
+
+    .form-box h3 {
+        font-size: 1.4rem;
+        word-break: break-word;
     }
 
     .input-group {
@@ -958,10 +975,6 @@ footer {
 
     .timeline-content {
         padding: 18px;
-    }
-
-    .contact-box {
-        padding: 20px;
     }
 }
 
