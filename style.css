@@ -102,6 +102,7 @@ header {
 .logo {
     font-size: 2rem;
     font-weight: 700;
+    white-space: nowrap;
 }
 
 .logo span {
@@ -112,11 +113,13 @@ header {
     display: flex;
     gap: 30px;
     list-style: none;
+    align-items: center;
 }
 
 .navbar ul li a {
     font-weight: 500;
     transition: 0.3s;
+    white-space: nowrap;
 }
 
 .navbar ul li a:hover {
@@ -682,7 +685,6 @@ header {
     display: block;
 }
 
-/* Correctif clé pour forcer le saut de ligne sur l'email long */
 .info-item p {
     font-weight: 600;
     font-size: 1rem;
@@ -880,33 +882,49 @@ footer {
         padding: 60px 12px !important;
     }
 
+    /* Configuration Header mobile sans coupure */
     header {
+        position: fixed;
         width: 100% !important;
         left: 0 !important;
+        right: 0 !important;
     }
 
     .navbar {
-        padding: 15px 12px !important;
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 12px 10px !important;
         width: 100% !important;
     }
 
+    .logo {
+        font-size: 1.2rem !important;
+        flex-shrink: 0;
+    }
+
     .navbar ul {
+        display: flex !important;
+        position: static !important;
+        background: transparent !important;
+        width: auto !important;
+        padding: 0 !important;
+        gap: 8px !important;
+        justify-content: flex-end;
+        align-items: center;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .navbar ul::-webkit-scrollbar {
         display: none;
     }
 
-    .navbar ul.active {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: rgba(7, 11, 24, 0.95);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        padding: 25px 0;
-        text-align: center;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    .navbar ul li a {
+        font-size: 0.7rem !important;
+        padding: 2px 4px !important;
+        white-space: nowrap !important;
     }
 
     .title {
@@ -1007,7 +1025,15 @@ footer {
 
 @media (max-width: 480px) {
     .logo {
-        font-size: 1.5rem;
+        font-size: 1.1rem !important;
+    }
+
+    .navbar ul {
+        gap: 5px !important;
+    }
+
+    .navbar ul li a {
+        font-size: 0.65rem !important;
     }
 
     .home-image img {
