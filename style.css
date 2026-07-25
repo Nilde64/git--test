@@ -746,7 +746,6 @@ header {
     display: block;
 }
 
-/* Correctif clé pour forcer le saut de ligne sur l'email long */
 .info-item p {
     font-weight: 600;
     font-size: 1rem;
@@ -896,6 +895,50 @@ footer {
    RESPONSIVE DESIGN (REVISED)
 ========================= */
 
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+
+    from,
+    to {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: var(--secondary);
+    }
+}
+
+@keyframes fillBar {
+    from {
+        width: 0%;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
 /* Tablettes (<= 1024px) */
 @media (max-width: 1024px) {
     section {
@@ -934,31 +977,59 @@ footer {
 
 /* Mobiles (<= 768px) */
 @media (max-width: 768px) {
+
+    html,
+    body {
+        overflow-x: hidden !important;
+    }
+
     section {
-        padding: 60px 15px !important;
+        padding: 60px 12px !important;
+    }
+
+    /* Configuration Header mobile sans coupure */
+    header {
+        position: fixed;
+        width: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
     }
 
     .navbar {
-        padding: 15px 5%;
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 12px 10px !important;
+        width: 100% !important;
+    }
+
+    .logo {
+        font-size: 1.2rem !important;
+        flex-shrink: 0;
     }
 
     .navbar ul {
+        display: flex !important;
+        position: static !important;
+        background: transparent !important;
+        width: auto !important;
+        padding: 0 !important;
+        gap: 8px !important;
+        justify-content: flex-end;
+        align-items: center;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .navbar ul::-webkit-scrollbar {
         display: none;
     }
 
-    .navbar ul.active {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: rgba(7, 11, 24, 0.95);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        padding: 25px 0;
-        text-align: center;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    .navbar ul li a {
+        font-size: 0.7rem !important;
+        padding: 2px 4px !important;
+        white-space: nowrap !important;
     }
 
     .title {
@@ -967,34 +1038,36 @@ footer {
     }
 
     .home-text h1 {
-        font-size: 2.3rem;
+        font-size: 2.2rem;
     }
 
     .home-text h2 {
-        font-size: 1.2rem;
-        white-space: normal;
-        border-right: none;
-        animation: none;
-        width: auto;
+        font-size: 1.1rem;
+        white-space: normal !important;
+        border-right: none !important;
+        animation: none !important;
+        width: auto !important;
     }
 
     .home-image img {
-        width: 220px;
-        height: 220px;
+        width: 200px;
+        height: 200px;
     }
 
     .skills-container,
     .projects-container,
     .contact-container {
         grid-template-columns: 1fr !important;
+        width: 100% !important;
     }
 
     .contact-box {
-        padding: 20px 15px;
+        padding: 20px 12px !important;
+        width: 100% !important;
     }
 
     .form-box h3 {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
         word-break: break-word;
     }
 
@@ -1035,7 +1108,6 @@ footer {
 /* Petits écrans mobiles (<= 600px & 480px) */
 @media (max-width: 600px) {
 
-    /* Sécurisation de la Timeline sur très petit écran */
     .timeline {
         padding-left: 20px;
     }
@@ -1058,7 +1130,15 @@ footer {
 
 @media (max-width: 480px) {
     .logo {
-        font-size: 1.5rem;
+        font-size: 1.1rem !important;
+    }
+
+    .navbar ul {
+        gap: 5px !important;
+    }
+
+    .navbar ul li a {
+        font-size: 0.65rem !important;
     }
 
     .home-image img {
