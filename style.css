@@ -128,39 +128,82 @@ header {
 }
 
 /* --- Ajustements spécifiques Mobile --- */
+/* =========================
+   RESPONSIVE MOBILE (<= 768px)
+========================= */
 @media (max-width: 768px) {
+
+    html,
+    body {
+        overflow-x: hidden !important;
+    }
+
+    section {
+        padding: 60px 12px !important;
+    }
+
+    /* Header & Navbar sur mobile */
+    header {
+        position: fixed;
+        width: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+        background: rgba(7, 11, 24, 0.85) !important;
+        /* Fond sombre pour la lisibilité */
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+
     .navbar {
-        padding: 12px 10px !important;
-        gap: 10px;
+        display: flex !important;
+        flex-direction: column !important;
+        /* Place le logo AU-DESSUS du menu */
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 10px 8px !important;
+        gap: 8px !important;
+        width: 100% !important;
     }
 
     .logo {
-        font-size: 1.2rem !important;
+        font-size: 1.4rem !important;
+        margin-bottom: 2px;
     }
 
+    /* Menu horizontal propre sous le logo */
     .navbar ul {
         display: flex !important;
-        /* Empeche de masquer la liste */
-        gap: 8px !important;
-        padding: 0 !important;
+        position: static !important;
+        flex-wrap: nowrap !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        gap: 12px !important;
+        padding: 4px 0 !important;
         margin: 0 !important;
-        overflow-x: auto;
-        /* Glissement fluide si l'ecran est tres etroit */
+        list-style: none !important;
+        overflow-x: auto !important;
+        /* Permet le glissement horizontal fluide si besoin */
         -webkit-overflow-scrolling: touch;
     }
 
     .navbar ul::-webkit-scrollbar {
         display: none;
-        /* Cache la barre de defilement sous iOS/Android */
+        /* Masque la barre de défilement */
     }
 
     .navbar ul li a {
-        font-size: 0.7rem !important;
-        padding: 2px 4px !important;
+        font-size: 0.75rem !important;
+        padding: 3px 5px !important;
         white-space: nowrap !important;
+        /* Empêche les retours à la ligne bizarres */
+    }
+
+    /* Ajustement de l'espacement pour ne pas cacher le haut de la page */
+    .home {
+        padding-top: 130px !important;
     }
 }
-
 /* =========================
    HOME
 ========================= */
