@@ -26,6 +26,7 @@ body {
     max-width: 100%;
     overflow-x: hidden;
 }
+    
 
 body {
     font-family: 'Poppins', sans-serif;
@@ -920,8 +921,77 @@ footer {
         padding: 5px 0 !important;
         list-style: none !important;
         background: transparent !important;
-
-        overflow-x: auto !important;
+    }
+        overf.navbar ul {
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                gap: 15px !important;
+                margin: 0 !important;
+                padding: 5px 0 !important;
+                list-style: none !important;
+                background: transparent !important;
+        
+                overflow-x: auto !important;
+                white-space: nowrap !important;
+                width: 100% !important;
+                min-width: 0 !important;
+        
+                -webkit-overflow-scrolling: touch !important;
+            }
+        
+            .navbar ul::-webkit-scrollbar {
+                display: none !important;
+                width: 0 !important;
+                height: 0 !important;
+            }
+        
+            .navbar ul li {
+                flex-shrink: 0 !important;
+                display: inline-block !important;
+            }
+        
+            .navbar ul li a {
+                font-size: 0.85rem !important;
+                white-space: nowrap !important;
+            }
+        
+            .title {
+                font-size: 2rem;
+                margin-bottom: 35px;
+            }
+        
+            .home-text h1 {
+                font-size: 2.2rem;
+            }
+        
+            /* Mobiles (<= 768px) */
+            @media (max-width: 768px) {
+        
+                /* H2 Mobile : Animation machine à écrire multiligne 100% CSS */
+                .home-text h2 {
+                    font-size: 1.1rem !important;
+                    white-space: normal !important;
+                    word-break: break-word !important;
+                    border-right: none !important;
+                    display: inline-block !important;
+                    position: relative !important;
+                    width: 100% !important;
+                    max-width: 100% !important;
+        
+                    /* Masque initial : texte caché */
+                    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+                    /* Dévoilement saccadé du texte */
+                    animation: revealText 3.5s steps(40, end) forwards !important;
+                }
+        
+                /* Barre clignotante collée à la fin du texte */
+                .home-text h2::after {
+                    content: "";
+                    display: inline-block;
+                    width: 3px;
+                    height: 1.1rem;
+                    background-color: var(--secondary);low-x: auto !important;
         white-space: nowrap !important;
         width: 100% !important;
         min-width: 0 !important;
@@ -953,21 +1023,69 @@ footer {
     .home-text h1 {
         font-size: 2.2rem;
     }
+}
 
-    /* FIX MOBILE : Retour à la ligne propre + suppression de l'effet d'écriture trop large */
-    .home-text h2 {
-        font-size: 1.1rem !important;
-        white-space: normal !important;
-        /* Autorise le passage à la ligne */
-        word-break: break-word !important;
-        border-right: none !important;
-        /* Retire la barre verticale */
-        width: 100% !important;
-        max-width: 100% !important;
-        display: block !important;
-        animation: fadeIn 1s ease-out forwards !important;
-        /* Animation fluide classique */
-    }
+   /* Mobiles (<= 768px) */
+   @media (max-width: 768px) {
+
+       /* H2 Mobile : Animation machine à écrire multiligne 100% CSS */
+       .home-text h2 {
+           font-size: 1.1rem !important;
+           white-space: normal !important;
+           word-break: break-word !important;
+           border-right: none !important;
+           display: inline-block !important;
+           position: relative !important;
+           width: 100% !important;
+           max-width: 100% !important;
+
+           /* Masque initial : texte caché */
+           clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+           /* Dévoilement saccadé du texte */
+           animation: revealText 3.5s steps(40, end) forwards !important;
+       }
+
+       /* Barre clignotante collée à la fin du texte */
+       .home-text h2::after {
+           content: "";
+           display: inline-block;
+           width: 3px;
+           height: 1.1rem;
+           background-color: var(--secondary);
+           margin-left: 4px;
+           vertical-align: middle;
+           animation: blinkCursor 0.75s step-end infinite !important;
+       }
+
+   }
+
+   /* ==========================================
+   ANIMATIONS 100% CSS (À mettre tout en bas du fichier CSS)
+========================================== */
+
+   /* Dévoilement progressif du texte de gauche à droite */
+   @keyframes revealText {
+       0% {
+           clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+       }
+
+       100% {
+           clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+       }
+   }
+
+   /* Clignotement du curseur */
+   @keyframes blinkCursor {
+
+       from,
+       to {
+           opacity: 0;
+       }
+
+       50% {
+           opacity: 1;
+       }
+   }
 
     .home-image img {
         width: 200px;
