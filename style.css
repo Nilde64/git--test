@@ -960,11 +960,12 @@ footer {
     }
 
     .home-text h2 {
-        font-size: 1.1rem;
+        font-size: 1.2rem !important;
         white-space: normal !important;
         border-right: none !important;
         animation: none !important;
         width: auto !important;
+       
     }
 
     .home-image img {
