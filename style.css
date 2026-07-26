@@ -161,7 +161,6 @@ header {
     color: transparent;
 }
 
-/* H2 Desktop (Machine à écrire) */
 .home-text h2 {
     font-size: 1.7rem;
     margin-bottom: 20px;
@@ -811,7 +810,6 @@ footer {
         border-color: var(--secondary);
     }
 }
-/* Animation pour la machine à écrire mobile multiligne */
 @keyframes revealText {
     0% {
         clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
@@ -892,7 +890,6 @@ footer {
         padding: 60px 12px !important;
     }
 
-    /* HEADER & NAVBAR DEFILEMENT TRANSPARENT */
     header {
         position: fixed !important;
         top: 0 !important;
@@ -965,8 +962,7 @@ footer {
         font-size: 2.2rem;
     }
 
-    /* FIX MOBILE : Retour à la ligne propre + suppression de l'effet d'écriture trop large */
-        /* H2 Mobile : Animation machine à écrire multiligne 100% CSS */
+        /*  Mobile : Animation */
         .home-text h2 {
             font-size: 1.1rem !important;
             white-space: normal !important;
@@ -977,9 +973,7 @@ footer {
             width: 100% !important;
             max-width: 100% !important;
     
-            /* Masque initial : texte caché */
             clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
-            /* Dévoilement saccadé du texte */
             animation: revealText 3.5s steps(40, end) forwards !important;
         }
     
