@@ -160,12 +160,34 @@ header {
 .home-text h2 {
     font-size: 1.7rem;
     margin-bottom: 20px;
+    white-space: nowrap;
     overflow: hidden;
     border-right: 3px solid var(--secondary);
-    width: 0;
+
     animation:
-        typing 3s steps(38) forwards,
+        typing 3.5s steps(30, end) forwards,
         blink 0.75s step-end infinite;
+}
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+
+    from,
+    to {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: var(--secondary);
+    }
 }
 
 .home-text p {
@@ -792,17 +814,6 @@ footer {
     }
 }
 
-@keyframes blink {
-
-    from,
-    to {
-        border-color: transparent;
-    }
-
-    50% {
-        border-color: var(--secondary);
-    }
-}
 
 @keyframes fillBar {
     from {
@@ -894,7 +905,6 @@ footer {
         padding: 10px 12px !important;
         width: 100% !important;
         min-width: 0 !important;
-        /* Autorise les enfants flex à réduire */
         background: transparent !important;
         box-sizing: border-box !important;
     }
