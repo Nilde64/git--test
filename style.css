@@ -157,38 +157,19 @@ header {
     color: transparent;
 }
 
+/* H2 Desktop */
 .home-text h2 {
     font-size: 1.7rem;
     margin-bottom: 20px;
     white-space: nowrap;
     overflow: hidden;
     border-right: 3px solid var(--secondary);
-    display: inline-block !important;
+    display: inline-block;
     animation:
         typing 3.5s steps(30, end) forwards,
-        blink 0.75s step-end infinite !important;
-}
-@keyframes typing {
-    from {
-        width: 0;
-    }
-
-    to {
-        width: 100%;
-    }
+        blink 0.75s step-end infinite;
 }
 
-@keyframes blink {
-
-    from,
-    to {
-        border-color: transparent;
-    }
-
-    50% {
-        border-color: var(--secondary);
-    }
-}
 
 .home-text p {
     color: var(--gray);
@@ -813,6 +794,17 @@ footer {
         width: 100%;
     }
 }
+@keyframes blink {
+
+    from,
+    to {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: var(--secondary);
+    }
+}
 
 
 @keyframes fillBar {
@@ -960,13 +952,16 @@ footer {
     }
 
     .home-text h2 {
-        font-size: 1.2rem !important;
-        white-space: normal !important;
-        border-right: none !important;
-        animation: none !important;
-        width: auto !important;
-       
-    }
+        font-size: 1.1rem !important;
+        white-space: nowrap !important;
+        border-right: 2px solid var(--secondary) !important;
+        display: inline-block !important;
+        overflow: hidden !important;
+        max-width: 100% !important;
+        animation:
+            typing 3.5s steps(30, end) forwards,
+            blink 0.75s step-end infinite !important;
+     }
 
     .home-image img {
         width: 200px;
