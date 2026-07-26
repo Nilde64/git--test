@@ -136,10 +136,9 @@ header {
 .home-text {
     flex: 1;
     max-width: 600px;
-    overflow: hidden; /* <--- Bloque tout ce qui veut sortir de l'écran */
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .home-text h3 {
@@ -161,23 +160,20 @@ header {
     color: transparent;
 }
 
-/* H2 Desktop */
+/* H2 Desktop (Machine à écrire) */
 .home-text h2 {
     font-size: 1.7rem;
     margin-bottom: 20px;
     white-space: nowrap;
     overflow: hidden;
     border-right: 3px solid var(--secondary);
-    white-space: normal !important;/* Permet au texte d'aller à la ligne */
     display: inline-block;
+    max-width: 100%;
+    box-sizing: border-box;
     animation:
         typing 3.5s steps(30, end) forwards,
         blink 0.75s step-end infinite;
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
 }
-
 
 .home-text p {
     color: var(--gray);
@@ -802,6 +798,7 @@ footer {
         width: 100%;
     }
 }
+
 @keyframes blink {
 
     from,
@@ -813,7 +810,6 @@ footer {
         border-color: var(--secondary);
     }
 }
-
 
 @keyframes fillBar {
     from {
@@ -915,7 +911,6 @@ footer {
         margin-right: 15px !important;
     }
 
-    /* Le ruban de liens défilant */
     .navbar ul {
         display: flex !important;
         flex-direction: row !important;
@@ -959,28 +954,20 @@ footer {
         font-size: 2.2rem;
     }
 
-        .home-text h2 {
-            font-size: 1.1rem !important;
-            white-space: normal !important;
-            word-break: break-word !important;
-            border-right: none !important;
-            display: inline !important;
-            width: auto !important;
-            max-width: 100% !important;
-            animation: fadeIn 1s ease-out forwards !important;
-        }
-    
-        /* Curseur clignotant ajouté juste après le texte */
-        .home-text h2::after {
-            content: "";
-            display: inline-block;
-            width: 3px;
-            height: 1.1rem;
-            background-color: var(--secondary);
-            margin-left: 5px;
-            vertical-align: middle;
-            animation: blink 0.75s step-end infinite !important;
-        }
+    /* FIX MOBILE : Retour à la ligne propre + suppression de l'effet d'écriture trop large */
+    .home-text h2 {
+        font-size: 1.1rem !important;
+        white-space: normal !important;
+        /* Autorise le passage à la ligne */
+        word-break: break-word !important;
+        border-right: none !important;
+        /* Retire la barre verticale */
+        width: 100% !important;
+        max-width: 100% !important;
+        display: block !important;
+        animation: fadeIn 1s ease-out forwards !important;
+        /* Animation fluide classique */
+    }
 
     .home-image img {
         width: 200px;
@@ -1040,7 +1027,6 @@ footer {
 
 /* Petits écrans mobiles (<= 600px & 480px) */
 @media (max-width: 600px) {
-
     .timeline {
         padding-left: 20px;
     }
