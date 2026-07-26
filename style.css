@@ -137,6 +137,9 @@ header {
     flex: 1;
     max-width: 600px;
     overflow: hidden; /* <--- Bloque tout ce qui veut sortir de l'écran */
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
 }
 
 .home-text h3 {
